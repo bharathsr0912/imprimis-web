@@ -49,7 +49,7 @@ export default function HomePage() {
             {/* Right Visual (Placeholder) */}
             <div className="relative hidden lg:block">
               <Image
-                src="/hero/iot-hero.png"
+                src="/hero/Iot-hero.png"
                 alt="IoT solutions illustration"
                 width={560}
                 height={460}

@@ -13,17 +13,20 @@ export default function ContactForm() {
     setSuccess(false);
 
     try {
-      await emailjs.sendForm(
-        "service_i04vnf7", // service ID
-        "template_cth2xzf", // template ID
-        e.currentTarget,
-        "U-khEHFEf7wuhvYtw", // public key
-      );
+      const result = await emailjs.sendForm(
+          "service_i04vnf7", // service ID
+          "template_cth2xzf", // template ID
+          e.currentTarget,
+          "U-khEHFEf7wuhvYtw", // public key
+        );
 
-      setSuccess(true);
-      e.currentTarget.reset();
-    } catch {
-      alert("Failed to send message. Please try again.");
+      // EmailJS returns { status: 200, text: "OK" } on success
+      if (result.status === 200) {
+        setSuccess(true);
+        e.currentTarget.reset();
+      }
+    } catch (error) {
+      console.error("EmailJS error:", error);
     } finally {
       setLoading(false);
     }
