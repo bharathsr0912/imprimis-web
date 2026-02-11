@@ -8,8 +8,8 @@ export const services = [
     description:
       "Our fleet management solution enables real-time tracking, vehicle diagnostics, route optimization, fuel monitoring, and compliance reporting — all from a single dashboard.",
     images: [
-      "/services/fleet-1.png",
-      "/services/fleet-2.png",
+      "/hero/fleet1.png",
+      "/hero/fleet2.png",
     ],
     features: [
       "Live vehicle tracking",
@@ -25,7 +25,7 @@ export const services = [
     description:
       "Track vehicles, assets, and individuals with high accuracy GPS tracking. Includes geo-fencing, alerts, and historical route playback.",
     images: [
-      "/services/tracking-1.png",
+      "/hero/track1.png",
     ],
     features: [
       "Real-time GPS location",
@@ -40,6 +40,31 @@ export const services = [
     short: "GPS-based personal safety solutions.",
     description:
       "Personal security tracking with SOS alerts, real-time monitoring, and emergency response integration.",
-    images: [],
+    images: [
+      "/hero/ps1.png",
+      "/hero/ps2.png",
+    ],
+    features: [
+      "Authentication",
+      "Privacy Protection",
+      "Access Control",
+      "Threat Detection & Prevention",
+    ],
+  },
+  {
+    slug: "Assest-tracking",
+    title: "Asset Tracking",
+    short: "Real-time tracking and monitoring of valuable assets.",
+    description:
+       "Asset tracking solutions with GPS-based location monitoring, geofencing, theft detection, usage analytics, and real-time alerts to ensure asset safety, visibility, and operational efficiency.",
+    images: [
+      "/hero/a1.png",
+    ],
+    features: [
+      "Real-time GPS location",
+      "Geo-fencing alerts",
+      "Playback history",
+      "Multi-device support",
+    ],
   },
 ];

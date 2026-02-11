@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { services } from "@/data/services";
 
 export default function ServicesPage() {
@@ -24,27 +25,38 @@ export default function ServicesPage() {
               flex flex-col rounded-lg border
               bg-white dark:bg-slate-900
               border-slate-200 dark:border-slate-800
-              p-6
               hover:shadow-md transition
+              overflow-hidden
             "
           >
-            {/* Title */}
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              {service.title}
-            </h3>
+            {/*  Image */}
+            <div className="w-full bg-gray-100 dark:bg-slate-800 flex items-center justify-center">
+               <Image 
+                src={service.images[0]}
+                alt={service.title}
+                width={400}
+                height={300}
+                className="max-w-full h-auto object-contain"
+              />
+            </div>
 
-            {/* Description */}
-            <p className="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-300">
-              {service.short}
-            </p>
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-1">
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                {service.title}
+              </h3>
 
-            {/* Read more */}
-            <Link
-              href={`/services/${service.slug}`}
-              className="mt-4 inline-block text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline"
-            >
-              Read more →
-            </Link>
+              <p className="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-300">
+                {service.short}
+              </p>
+
+              <Link
+                href={`/services/${service.slug}`}
+                className="mt-4 inline-block text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline"
+              >
+                Read more →
+              </Link>
+            </div>
           </div>
         ))}
       </div>

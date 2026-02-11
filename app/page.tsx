@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TeamSection from "@/components/sections/TeamSection";
@@ -6,6 +10,18 @@ import ContactSection from "@/components/sections/ContactSection";
 import Image from "next/image";
 
 export default function HomePage() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const heroImage =
+    theme === "dark" ? "/hero/iot-hero1.png" : "/hero/iot-hero.png";
+
   return (
     <main>
       {/* HERO SECTION */}
@@ -46,19 +62,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Visual (Placeholder) */}
+            {/* Right Visual (THEME-AWARE IMAGE) */}
             <div className="relative hidden lg:block">
               <Image
-                src="/hero/Iot-hero.png"
+                src={heroImage}
                 alt="IoT solutions illustration"
                 width={560}
                 height={460}
                 priority
-                className="rounded-xl"
+                className="rounded-xl transition-opacity duration-300"
               />
             </div>
           </div>
         </div>
+
         <div className="mt-24 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent" />
       </section>
 

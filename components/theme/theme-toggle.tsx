@@ -8,21 +8,36 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-
   if (!mounted) return null;
+
+  const isDark = theme === "dark";
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="
-    h-8 px-3 rounded-md text-sm
-    border border-slate-300 dark:border-slate-700
-    text-slate-700 dark:text-slate-200
-    hover:bg-slate-100 dark:hover:bg-slate-800
-    transition
-  "
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className={`
+        relative w-24 h-8 rounded-full border
+        transition-colors duration-300
+        ${isDark
+          ? "bg-slate-800 border-slate-700"
+          : "bg-slate-200 border-slate-300"}
+      `}
+      aria-label="Toggle Theme"
     >
-      {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
+      {/* Slider */}
+      <span
+        className={`
+          absolute top-1 left-1 h-6 w-14 rounded-full
+          bg-white dark:bg-slate-900
+          shadow-md
+          flex items-center justify-center
+          text-xs font-semibold
+          transition-transform duration-300
+          ${isDark ? "translate-x-8" : "translate-x-0"}
+        `}
+      >
+        {isDark ? "Dark" : "Light"}
+      </span>
     </button>
   );
 }
