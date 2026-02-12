@@ -20,7 +20,7 @@ export default function HomePage() {
   if (!mounted) return null;
 
   const heroImage =
-    theme === "dark" ? "/hero/iot-hero1.png" : "/hero/iot-hero.png";
+    theme === "dark" ? "/hero/Iot-hero1.png" : "/hero/Iot-hero.png";
 
   return (
     <main>
