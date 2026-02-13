@@ -116,7 +116,7 @@ export default function AboutSection() {
   transition hover:shadow-md"
           >
             <IconWrapper>
-              {/* Shield icon */}
+              {/* Package icon */}
               <svg
                 viewBox="0 0 24 24"
                 className="h-5 w-5"

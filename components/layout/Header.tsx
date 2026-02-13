@@ -36,7 +36,7 @@ export default function Header() {
               Services
             </Link> */}
 
-            <div className="relative group">
+            <div className="relative group py-2">
               {/* Services main link */}
               <Link
                 href="/services"
@@ -59,13 +59,14 @@ export default function Header() {
               {/* Dropdown */}
               <div
                 className="
-                  absolute left-0 top-full z-50 mt-2 w-56
+                  absolute left-0 top-full z-50 w-56
                   rounded-lg border border-slate-200 dark:border-slate-800
                   bg-white dark:bg-slate-900
                   shadow-lg
                   opacity-0 invisible
                   group-hover:opacity-100 group-hover:visible
                   transition
+                  pointer-events-auto
                 "
               >
                 <ul className="py-2">

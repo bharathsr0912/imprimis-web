@@ -28,6 +28,9 @@ export default function ServicesPage() {
               hover:shadow-md transition
             "
           >
+          <div className="mb-4 text-cyan-600 dark:text-cyan-400">
+            {service.icon && <service.icon size={32} />}
+          </div>
             {/* Title */}
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
               {service.title}

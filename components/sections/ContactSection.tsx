@@ -27,10 +27,10 @@ export default function ContactSection() {
     <div className="mx-auto max-w-7xl px-6">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-          Contact Us
+          Contact@Imprimis.In
         </h2>
         <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-          Have questions or want to request a demo? Reach out to us.
+          Have questions or what to request a demo?
         </p>
       </div>
 

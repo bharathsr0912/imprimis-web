@@ -36,11 +36,10 @@ export default function ContactPage() {
       {/* Header */}
       <div className="mb-12 max-w-2xl">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-          Contact Us
+          Contact
         </h1>
         <p className="mt-2 text-slate-600 dark:text-slate-300">
-          Have questions about our IoT solutions or want to request a demo? Get
-          in touch with us.
+          Have  
         </p>
       </div>
 
