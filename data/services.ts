@@ -10,8 +10,8 @@ export const services = [
     description:
       "Our fleet management solution enables real-time tracking...",
     images: [
-      "/services/fleet-1.png",
-      "/services/fleet-2.png",
+      "/hero/fleet1.png",
+      "/hero/fleet2.png",
     ],
     features: [
       "Live vehicle tracking",
