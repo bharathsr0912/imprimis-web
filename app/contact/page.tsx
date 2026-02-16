@@ -1,127 +1,103 @@
 "use client";
 
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import AboutSection from "@/components/sections/AboutSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import TeamSection from "@/components/sections/TeamSection";
+import ContactSection from "@/components/sections/ContactSection";
+import Image from "next/image";
 
-export default function ContactPage() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+export default function HomePage() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    const form = e.currentTarget;
+  if (!mounted) return null;
 
-    try {
-      await emailjs.sendForm(
-        "service_i04vnf7", // service ID
-        "template_cth2xzf", // template ID
-        form,
-        "U-khEHFEf7wuhvYtw", // public key
-      );
-
-      setSuccess(true);
-      form.reset();
-    } catch (error) {
-      alert("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const heroImage =
+    theme === "dark" ? "/hero/Iot-hero1.png" : "/hero/Iot-hero.png";
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
-      {/* Header */}
-      <div className="mb-12 max-w-2xl">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-          Contact
-        </h1>
-        <p className="mt-2 text-slate-600 dark:text-slate-300">
-          Have  
-        </p>
-      </div>
+    <main>
+      {/* HERO SECTION */}
+      <section
+        id="home"
+        className="relative overflow-hidden bg-white dark:bg-slate-900"
+      >
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Left Content */}
+            <div className="animate-fade-up">
+              <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+                Smart IoT Solutions
+                <span className="block text-cyan-600 dark:text-cyan-400">
+                  for Modern Businesses
+                </span>
+              </h1>
 
-      <div className="grid gap-12 lg:grid-cols-2">
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-              Name
-            </label>
-            <input
-              name="name"
-              required
-              placeholder="Your name"
-              className="mt-1 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
-          </div>
+              <p className="mt-6 max-w-xl text-lg text-slate-600 dark:text-slate-300">
+                Empowering fleet management, live GPS tracking, and personal
+                security with scalable, real-time IoT technology.
+              </p>
 
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="you@example.com"
-              className="mt-1 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
-          </div>
+              <div className="mt-8 flex gap-4">
+                <Link
+                  href="/#services"
+                  className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-sm font-medium text-white hover:bg-cyan-700 transition"
+                >
+                  Get Started
+                </Link>
 
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-              Message
-            </label>
-            <textarea
-              name="message"
-              rows={4}
-              required
-              placeholder="Tell us about your requirement"
-              className="mt-1 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
-          </div>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center rounded-md border border-slate-300 dark:border-slate-700 px-6 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="rounded-md bg-cyan-600 px-6 py-2 text-sm font-medium text-white hover:bg-cyan-700 disabled:opacity-60 transition"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-
-          {success && (
-            <p className="text-sm text-green-600">Message sent successfully!</p>
-          )}
-        </form>
-
-        {/* Office Info + Map */}
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Office Address
-            </h2>
-            <p className="mt-2 text-slate-600 dark:text-slate-300">
-              Imprimisis Technologies
-              <br />
-              Bengaluru, Karnataka
-              <br />
-              India
-            </p>
-          </div>
-
-          <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
-            <iframe
-              title="Google Map"
-              src="https://www.google.com/maps?q=Bengaluru&output=embed"
-              className="h-64 w-full border-0"
-              loading="lazy"
-            />
+            {/* Right Visual (THEME-AWARE IMAGE) */}
+            <div className="relative hidden lg:block">
+              <Image
+                src={heroImage}
+                alt="IoT solutions illustration"
+                width={560}
+                height={460}
+                priority
+                className="rounded-xl transition-opacity duration-300"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+
+        <div className="mt-24 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent" />
+      </section>
+
+      <section id="about" className="py-24">
+        <div className="animate-fade-up">
+          <AboutSection />
+        </div>
+      </section>
+
+      <section id="services" className="py-24 bg-slate-50 dark:bg-slate-800">
+        <ServicesSection />
+      </section>
+
+      {/* <section id="team" className="py-24">
+        <div className="animate-fade-up">
+          <TeamSection />
+        </div>
+      </section> */}
+
+      <section id="contact" className="py-24">
+        <ContactSection />
+      </section>
+    </main>
   );
 }

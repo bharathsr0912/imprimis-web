@@ -14,10 +14,10 @@ export default function ContactForm() {
 
     try {
       const result = await emailjs.sendForm(
-          "service_i04vnf7", // service ID
-          "template_cth2xzf", // template ID
+          "service_fxwmnqr", // service ID
+          "template_lp33v39", // template ID
           e.currentTarget,
-          "U-khEHFEf7wuhvYtw", // public key
+          "aKQGQMdZVUZEUq5DK", // public key
         );
 
       // EmailJS returns { status: 200, text: "OK" } on success

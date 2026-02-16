@@ -17,10 +17,12 @@ export default function HomePage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  // if (!mounted) return null;
 
   const heroImage =
-    theme === "dark" ? "/hero/Iot-hero1.png" : "/hero/Iot-hero.png";
+    mounted && theme === "dark" 
+    ? "/hero/Iot-hero1.png" 
+    : "/hero/Iot-hero.png";
 
   return (
     <main>

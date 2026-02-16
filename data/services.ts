@@ -38,7 +38,7 @@ export const services = [
   {
     slug: "asset-tracking",
     title: "Asset Tracking",
-    icon:  Package,   
+    icon:  Package,
     short: "Real-time tracking and monitoring of valuable assets.",
     description:
       "Track and monitor valuable assets with real-time updates...",

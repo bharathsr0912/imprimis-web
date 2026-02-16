@@ -20,6 +20,7 @@
 //     </div>
 //   );
 // }
+
 import ContactForm from "@/components/contact/ContactForm";
 
 export default function ContactSection() {
@@ -27,8 +28,16 @@ export default function ContactSection() {
     <div className="mx-auto max-w-7xl px-6">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-          Contact@Imprimis.In
+          <a
+            href="https://imprimis.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Contact US
+          </a>
         </h2>
+
         <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
           Have questions or what to request a demo?
         </p>
@@ -43,6 +52,7 @@ export default function ContactSection() {
           <h3 className="font-semibold text-slate-900 dark:text-white">
             Office Address
           </h3>
+
           <p className="mt-2 text-slate-600 dark:text-slate-300">
             Imprimisis Technologies
             <br />
