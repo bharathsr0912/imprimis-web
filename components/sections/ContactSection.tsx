@@ -1,8 +1,9 @@
 import ContactForm from "@/components/contact/ContactForm";
 
 export default function ContactSection() {
-  const address =
-    "IMPRIMIS INNOVATIONS PVT LTD, 127 1st Floor, 9th Main, 10th Cross Rd, Ideal Homes Twp, Rajarajeshwari Nagara, Bengaluru, Karnataka 560098";
+  const address = `IMPRIMIS INNOVATIONS PVT LTD,
+127 1stFloor, 9thMain, 10thCross Rd, Ideal Homes Twp,
+Rajarajeshwari Nagara, Bengaluru, Karnataka 560098`;
 
   return (
     <section
@@ -34,14 +35,14 @@ export default function ContactSection() {
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Office Address
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                 {address}
               </p>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Phone Number 
+                Phone Number
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 080-40998204
@@ -53,11 +54,10 @@ export default function ContactSection() {
                 Email
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                imprimisiot@gmail.com
+                contact@imprimis.in
               </p>
             </div>
 
-            {/* SAME MAP + SAME LINK */}
             <a
               href="https://maps.app.goo.gl/QN7xr9fc1tQwU8XF6?g_st=aw"
               target="_blank"
