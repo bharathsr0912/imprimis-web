@@ -7,30 +7,34 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
 
-    try {
-      const result = await emailjs.sendForm(
-          "service_fxwmnqr", // service ID
-          "template_lp33v39", // template ID
-          e.currentTarget,
-          "aKQGQMdZVUZEUq5DK", // public key
-        );
+  const form = e.currentTarget;   // ✅ store form reference safely
 
-      // EmailJS returns { status: 200, text: "OK" } on success
-      if (result.status === 200) {
-        setSuccess(true);
-        e.currentTarget.reset();
-      }
-    } catch (error) {
-      console.error("EmailJS error:", error);
-    } finally {
-      setLoading(false);
+  setLoading(true);
+  setSuccess(false);
+
+  try {
+    const result = await emailjs.sendForm(
+      "service_fxwmnqr",
+      "template_lp33v39",
+      form,                // ✅ use stored form
+      "aKQGQMdZVUZEUq5DK"
+    );
+
+    if (result.status === 200) {
+      setSuccess(true);
+      form.reset();        // ✅ safe reset
     }
-  };
+  } catch (error) {
+    console.error("EmailJS error:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
