@@ -85,7 +85,7 @@ export default async function ServiceDetailPage({
         </h2>
 
         <p className="mt-4 max-w-2xl mx-auto text-slate-600 dark:text-slate-300">
-          Talk to our team to see how Imprimisis can help you implement
+          Talk to our team to see how Imprimis can help you implement
           scalable, real-time IoT solutions tailored to your business.
         </p>
 

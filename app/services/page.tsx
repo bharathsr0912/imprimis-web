@@ -3,14 +3,14 @@ import { services } from "@/data/services";
 
 export default function ServicesPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-6 pt-6 pb-12">
       {/* Header */}
       <div className="mb-12">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
           Our Services
         </h1>
         <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-          Imprimisis provides reliable IoT solutions for tracking, safety, and
+          Imprimis provides reliable IoT solutions for tracking, safety, and
           operational intelligence.
         </p>
       </div>

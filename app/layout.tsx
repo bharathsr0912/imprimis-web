@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
 export const metadata = {
-  title: "Imprimisis – IoT Solutions",
+  title: "Imprimis – IoT Solutions",
   description: "Fleet management, live tracking & personal security solutions",
 };
 
