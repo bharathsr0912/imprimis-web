@@ -50,7 +50,7 @@ export default function AboutSection() {
             </IconWrapper>
             <h3 className="font-semibold text-slate-900 dark:text-white">Real-Time Data</h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-              Live tracking and analytics for faster decision-making.
+              Smart Water Management.
             </p>
           </div>
 

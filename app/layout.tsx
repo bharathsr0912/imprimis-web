@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 
 export const metadata = {
   title: "Imprimis – IoT Solutions",
-  description: "Fleet management, live tracking & personal security solutions",
+  description: "Smart Water Management",
 };
 
 export default function RootLayout({

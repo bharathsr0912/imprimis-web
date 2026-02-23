@@ -1,62 +1,29 @@
 import Link from "next/link";
+import Image from "next/image";
 import { services } from "@/data/services";
-
-function ServiceIcon({ slug }: { slug: string }) {
-  switch (slug) {
-    case "fleet-management":
-      return (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="3" y="11" width="18" height="6" rx="2" />
-          <path d="M5 11V7h14v4" />
-        </svg>
-      );
-    case "live-tracking":
-      return (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="10" r="3" />
-          <path d="M12 2v2M12 18v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4" />
-        </svg>
-      );
-    case "personal-security":
-      return (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z" />
-        </svg>
-      );
-    case "asset-tracking":
-      return (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-          <path d="M3.3 7l8.7 5 8.7-5" />
-          <path d="M12 22V12" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-}
 
 export default function ServicesSection() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center sm:text-left">
-        Our Services
+        Our Solutions
       </h2>
 
-      {/* 
-        Breakpoint grid:
-        - mobile  (<sm):  1 column
-        - tablet  (sm):   2 columns
-        - desktop (lg):   4 columns
-      */}
       <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
         {services.map((service) => (
           <div
             key={service.slug}
-            className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 sm:p-6 hover:shadow-md transition flex flex-col"
+            className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 sm:p-6 hover:shadow-md transition flex flex-col items-center text-center"
           >
-            <div className="mb-4 text-cyan-600 dark:text-cyan-400">
-              <ServiceIcon slug={service.slug} />
+            {/* LOGO */}
+            <div className="mb-4">
+              <Image
+                src={service.logo}
+                alt={service.title}
+                width={60}
+                height={60}
+                className="object-contain"
+              />
             </div>
 
             <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">

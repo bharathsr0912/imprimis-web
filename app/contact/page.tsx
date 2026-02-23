@@ -42,7 +42,7 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-6 max-w-xl text-lg text-slate-600 dark:text-slate-300">
-          Empowering fleet management, live GPS tracking, and personal
+          Empowering fleet management, Smart Water Management, and personal
           security with scalable, real-time IoT technology.
         </p>
 
