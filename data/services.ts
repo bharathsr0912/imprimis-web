@@ -5,7 +5,7 @@ export const services: Service[] = [
   {
     slug: "fleet-management",
     title: "Fleet Management",
-    logo: "/hero/fleet1.png",   // ✅ changed
+    logo: "/hero/fleet1.png",   
     short: "Monitor, manage, and optimize vehicle fleets in real time.",
     description:
       "Our fleet management solution enables real-time tracking...",
@@ -21,7 +21,7 @@ export const services: Service[] = [
   {
     slug: "smart-water-management",
     title: "Smart Water Management",
-    logo: "/hero/track1.png",   // ✅ changed
+    logo: "/hero/track1.png",   
     short: "Real-time monitoring and analytics for water systems.",
     description:
       "Advanced IoT-powered monitoring system for water usage, leak detection, and automated irrigation.",

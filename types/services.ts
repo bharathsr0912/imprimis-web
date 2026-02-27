@@ -6,5 +6,6 @@ export type Service = {
   short: string;
   description: string;
   images: string[];
-  icon?: LucideIcon;   
+  logo:  string;
+  features: string[];
 };
