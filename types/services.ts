@@ -6,6 +6,6 @@ export type Service = {
   short: string;
   description: string;
   images: string[];
-  logo:  string;
+  icon : any;
   features: string[];
 };

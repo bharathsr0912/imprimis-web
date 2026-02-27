@@ -1,11 +1,12 @@
 
 import { Service } from "@/types/services";
+import { Truck, Droplets, Shield, Box } from "lucide-react";
 
 export const services: Service[] = [
   {
     slug: "fleet-management",
     title: "Fleet Management",
-    logo: "/hero/fleet1.png",   
+    icon: Truck,
     short: "Monitor, manage, and optimize vehicle fleets in real time.",
     description:
       "Our fleet management solution enables real-time tracking...",
@@ -21,7 +22,7 @@ export const services: Service[] = [
   {
     slug: "smart-water-management",
     title: "Smart Water Management",
-    logo: "/hero/track1.png",   
+    icon: Droplets,
     short: "Real-time monitoring and analytics for water systems.",
     description:
       "Advanced IoT-powered monitoring system for water usage, leak detection, and automated irrigation.",
@@ -37,7 +38,7 @@ export const services: Service[] = [
   {
     slug: "personal-security",
     title: "Personal Security",
-    logo: "/hero/ps1.png",   // ✅ changed
+    icon: Shield,
     short: "GPS-based personal safety solutions.",
     description:
       "Personal security tracking with SOS alerts, real-time monitoring, and emergency response integration.",
@@ -53,7 +54,7 @@ export const services: Service[] = [
   {
     slug: "asset-tracking",
     title: "Asset Tracking",
-    logo: "/hero/a1.png",   // ✅ changed
+    icon: Box,
     short: "Real-time tracking and monitoring of valuable assets.",
     description:
       "Asset tracking solutions with GPS-based location monitoring, geofencing, theft detection, usage analytics, and real-time alerts.",

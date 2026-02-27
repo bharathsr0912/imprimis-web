@@ -29,7 +29,7 @@ export default function ServicesPage() {
             "
           >
           <div className="mb-4 text-cyan-600 dark:text-cyan-400">
-           <img src={service.logo} alt={service.title} className="w-12 h-12" />
+           <service.icon className="h-12 w-12" />
           </div>
             {/* Title */}
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">

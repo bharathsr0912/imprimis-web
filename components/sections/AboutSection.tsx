@@ -13,16 +13,25 @@ export default function AboutSection() {
         {/* Left: Text */}
         <div className="text-center lg:text-left">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-            About Imprimis
+            ABOUT IMPRIMIS
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            Imprimis is an IoT-focused technology company delivering
-            intelligent, real-time solutions for modern businesses.
-          </p>
-          <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            We help organizations gain visibility, improve safety, and optimize
-            operations through scalable IoT platforms.
-          </p>
+          <h3>
+          Built on a Belief That Technology Should Work in the Real World
+          </h3>
+        <p>
+          Imprimis is an IoT solutions company on a mission to bring intelligent,
+          real-world automation to businesses across India. We design and deploy
+          connected systems that give you live visibility, smart alerts, and
+          meaningful control — whether you're managing a fleet, a farm, a water
+          network, or your people's safety.
+        </p>
+        <br></br>
+        <p>
+        We're a young company with deep conviction: that the gap between complex
+        enterprise IoT and accessible, practical solutions needs to close.
+        Everything we build is designed to be simple to deploy, easy to use,
+        and genuinely impactful from day one.
+        </p>
         </div>
 
         {/* Right: Highlight Cards */}
