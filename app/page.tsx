@@ -54,8 +54,8 @@ export default function HomePage() {
             <Image
               src={
                 theme === "dark"
-                  ? "/hero/iot-hero1.png"
-                  : "/hero/iot-hero.png"
+                  ? "/hero/Iot-hero1.png"
+                  : "/hero/Iot-hero.png"
               }
               alt="Smart IoT Solutions"
               width={600}
