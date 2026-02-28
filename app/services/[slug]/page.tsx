@@ -91,7 +91,7 @@ export default async function ServiceDetailPage({
 
         <div className="mt-8 flex justify-center gap-4">
           <Link
-            href="/contact"
+            href="/#contact"
             className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-sm font-medium text-white hover:bg-cyan-700 transition"
           >
             Contact Us
