@@ -23,8 +23,6 @@ export default function ScrollHash() {
 
     // only on the very first visit do we care about “reload vs navigate”
     if (!hasVisited) {
-      // the old `performance.navigation` API is deprecated but still
-      // present; the newer one lives in navigation entries.
       const entries = performance.getEntriesByType(
         "navigation"
       ) as PerformanceNavigationTiming[];
@@ -47,4 +45,6 @@ export default function ScrollHash() {
 
     hasVisited = true;
   }, []);
+
+  return null;
 }
