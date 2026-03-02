@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useTheme } from "next-themes";
@@ -6,6 +5,7 @@ import { useEffect, useState } from "react";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ContactSection from "@/components/sections/ContactSection";
+import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,11 +21,11 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* HERO SECTION */}
+
+      {/* HERO */}
       <section className="relative bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:py-24 grid items-center gap-12 lg:grid-cols-2">
-          
-          {/* TEXT */}
+
           <div className="text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight">
               Smart IoT Solutions
@@ -39,17 +39,23 @@ export default function HomePage() {
               and personal security with scalable real-time IoT technology.
             </p>
 
-            <div className="mt-8 flex justify-center lg:justify-start">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 href="/#services"
-                className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-md text-sm font-medium transition"
+                className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-md text-sm font-medium transition text-center"
               >
                 Explore Solutions
+              </Link>
+
+              <Link
+                href="/#contact"
+                className="bg-cyan-600 text-white px-8 py-3 rounded-md text-sm font-medium transition hover:bg-cyan-700"
+              >
+                Contact Us
               </Link>
             </div>
           </div>
 
-          {/* IMAGE */}
           <div className="flex justify-center lg:justify-end">
             <Image
               src={
@@ -64,23 +70,42 @@ export default function HomePage() {
               priority
             />
           </div>
+
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-16">
+      {/* ABOUT - Grey */}
+      <section
+        id="about"
+        className="py-16 bg-gray-100 dark:bg-slate-800"
+      >
         <AboutSection />
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="py-16 bg-slate-50 dark:bg-slate-800">
+      {/* SERVICES - White */}
+      <section
+        id="services"
+        className="py-16 bg-white dark:bg-slate-900"
+      >
         <ServicesSection />
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="py-16">
+      {/* HOW IT WORKS - Grey */}
+      <section
+        id="how-it-works"
+        className="py-16 bg-gray-100 dark:bg-slate-800"
+      >
+        <HowItWorksSection />
+      </section>
+
+      {/* CONTACT - White */}
+      <section
+        id="contact"
+        className="py-16 bg-white dark:bg-slate-900"
+      >
         <ContactSection />
       </section>
+
     </main>
   );
 }
