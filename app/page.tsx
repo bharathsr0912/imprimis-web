@@ -22,8 +22,13 @@ export default function HomePage() {
 
   return (
     <main>
+<<<<<<< HEAD
       {/* HERO SECTION */}
       <ScrollHash />
+=======
+
+      {/* HERO */}
+>>>>>>> 8db55ac (changes done in service page and added new section , cleared 403 error)
       <section className="relative bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:py-24 grid items-center gap-12 lg:grid-cols-2">
 
