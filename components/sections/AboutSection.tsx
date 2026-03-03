@@ -22,7 +22,7 @@ export default function AboutSection() {
           Imprimis is an IoT solutions company on a mission to bring intelligent,
           real-world automation to businesses across India. We design and deploy
           connected systems that give you live visibility, smart alerts, and
-          meaningful control — whether you're managing a fleet, a farm, a water
+          meaningful control — whether you're managing a , a farm, a water
           network, or your people's safety.
         </p>
         <br></br>

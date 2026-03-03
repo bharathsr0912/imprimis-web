@@ -41,7 +41,7 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-300 text-lg">
-              Empowering fleet management, smart water management, asset tracking,
+              Empowering automated smart agriculture, smart water management, asset tracking,
               and personal security with scalable real-time IoT technology.
             </p>
 

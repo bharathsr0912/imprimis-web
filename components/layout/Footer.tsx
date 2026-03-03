@@ -24,7 +24,7 @@ export default function Footer() {
               Imprimis
             </Link>
             <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 max-w-xs">
-              Smart IoT solutions for fleet management, Smart Water Management &amp; personal security.
+              Smart IoT solutions for Automated Smart Agriculture, Smart Water Management &amp; personal security.
             </p>
           </div>
 

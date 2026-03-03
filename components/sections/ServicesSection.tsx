@@ -1,7 +1,6 @@
 
 import Link from "next/link";
 import { services } from "@/data/services";
-
 export default function ServicesSection() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -30,9 +29,9 @@ export default function ServicesSection() {
               {service.title}
             </h3>
 
-            {/* Description */}
+            {/* Short description */}
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 flex-1">
-              {service.description}
+              {service.short}
             </p>
 
             {/* Link */}
