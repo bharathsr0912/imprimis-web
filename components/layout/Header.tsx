@@ -33,7 +33,7 @@ export default function Header() {
             {/* Services Dropdown */}
             <div className="relative group py-2">
               <Link
-                href="/services"
+                href="/#services"
                 className="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
                 Services

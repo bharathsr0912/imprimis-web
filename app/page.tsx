@@ -8,6 +8,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollHash from "@/components/scroll/ScrollHash";
 
 export default function HomePage() {
   const { theme } = useTheme();
@@ -21,8 +22,8 @@ export default function HomePage() {
 
   return (
     <main>
-
-      {/* HERO */}
+      {/* HERO SECTION */}
+      <ScrollHash />
       <section className="relative bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:py-24 grid items-center gap-12 lg:grid-cols-2">
 
