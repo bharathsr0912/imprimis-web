@@ -2,12 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import ThemeToggle from "@/components/theme/theme-toggle";
 import { services } from "@/data/services";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Get current locale from pathname
+  const currentLocale = pathname.startsWith('/fr') ? 'fr' : 'en';
+
+  const switchLanguage = (lang: string) => {
+    const newPath = pathname.replace(`/${currentLocale}`, `/${lang}`);
+    router.push(newPath);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-slate-900">
@@ -27,7 +38,7 @@ export default function Header() {
               href="/#about"
               className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
             >
-              About
+              {currentLocale === 'fr' ? 'À propos' : 'About'}
             </Link>
 
             {/* Services Dropdown */}
@@ -36,7 +47,7 @@ export default function Header() {
                 href="/#services"
                 className="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
-                Services
+                {currentLocale === 'fr' ? 'Services' : 'Services'}
                 <svg
                   className="h-4 w-4 transition-transform group-hover:rotate-180"
                   viewBox="0 0 20 20"
@@ -51,18 +62,7 @@ export default function Header() {
               </Link>
 
               {/* Dropdown */}
-              <div
-                className="
-                  absolute left-0 top-full z-50 w-56
-                  rounded-lg border border-slate-200 dark:border-slate-800
-                  bg-white dark:bg-slate-900
-                  shadow-lg
-                  opacity-0 invisible
-                  group-hover:opacity-100 group-hover:visible
-                  transition
-                  pointer-events-auto
-                "
-              >
+              <div className="absolute left-0 top-full z-50 w-56 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition pointer-events-auto">
                 <ul className="py-2">
                   {services.map((service) => (
                     <li key={service.slug}>
@@ -82,14 +82,61 @@ export default function Header() {
               href="/#contact"
               className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
             >
-              Contact
+              {currentLocale === 'fr' ? 'Contact' : 'Contact'}
             </Link>
+
+            {/* Language Switcher */}
+            <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-700 rounded-md overflow-hidden text-xs">
+              <button
+                onClick={() => switchLanguage('en')}
+                className={`px-2 py-1 transition-colors ${
+                  currentLocale === 'en'
+                    ? 'bg-cyan-600 text-white'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                🇬🇧 EN
+              </button>
+              <button
+                onClick={() => switchLanguage('fr')}
+                className={`px-2 py-1 transition-colors ${
+                  currentLocale === 'fr'
+                    ? 'bg-cyan-600 text-white'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                🇫🇷 FR
+              </button>
+            </div>
 
             <ThemeToggle />
           </div>
 
           {/* Mobile: Theme Toggle + Hamburger */}
           <div className="flex md:hidden items-center gap-3">
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-1 border border-slate-200 dark:border-slate-700 rounded-md overflow-hidden text-xs">
+              <button
+                onClick={() => switchLanguage('en')}
+                className={`px-2 py-1 transition-colors ${
+                  currentLocale === 'en'
+                    ? 'bg-cyan-600 text-white'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => switchLanguage('fr')}
+                className={`px-2 py-1 transition-colors ${
+                  currentLocale === 'fr'
+                    ? 'bg-cyan-600 text-white'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                FR
+              </button>
+            </div>
             <ThemeToggle />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -97,12 +144,10 @@ export default function Header() {
               className="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               {menuOpen ? (
-                /* X icon */
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                /* Hamburger icon */
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -121,16 +166,15 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             >
-              About
+              {currentLocale === 'fr' ? 'À propos' : 'About'}
             </Link>
 
-            {/* Mobile Services Accordion */}
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className="w-full flex items-center justify-between py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
-                Services
+                {currentLocale === 'fr' ? 'Services' : 'Services'}
                 <svg
                   className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
                   viewBox="0 0 20 20"
@@ -152,7 +196,7 @@ export default function Header() {
                       onClick={() => setMenuOpen(false)}
                       className="block py-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                     >
-                      All Services
+                      {currentLocale === 'fr' ? 'Tous les services' : 'All Services'}
                     </Link>
                   </li>
                   {services.map((service) => (
@@ -175,7 +219,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             >
-              Contact
+              {currentLocale === 'fr' ? 'Contact' : 'Contact'}
             </Link>
           </nav>
         </div>

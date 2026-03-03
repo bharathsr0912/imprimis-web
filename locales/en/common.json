@@ -1,0 +1,21 @@
+
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Smart IoT solutions for fleet management, Smart Water Management & personal security."
+  },
+  "services": {
+    "fleet": "Fleet Management",
+    "water": "Smart Water Management",
+    "security": "Personal Security",
+    "asset": "Asset Tracking"
+  },
+  "footer": {
+    "getInTouch": "Get in Touch",
+    "rights": "© 2026 Imprimis. All rights reserved."
+  }
+}

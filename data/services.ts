@@ -1,6 +1,26 @@
 
 import { Service } from "@/types/services";
 import { Truck, Droplets, Shield, Box } from "lucide-react";
+export const serviceTranslations: Record<string, Record<string, { title: string; short: string }>> = {
+  fr: {
+    "automated-smart-agriculture": {
+      title: "Agriculture Intelligente Automatisée",
+      short: "Surveillance et automatisation alimentées par l'IoT pour des opérations agricoles plus intelligentes.",
+    },
+    "smart-water-management": {
+      title: "Gestion Intelligente de l'Eau",
+      short: "Surveillance et contrôle IoT des réseaux d'approvisionnement en eau.",
+    },
+    "personal-security": {
+      title: "Sécurité Personnelle",
+      short: "Solutions de sécurité personnelle basées sur GPS pour les individus et les équipes.",
+    },
+    "asset-tracking": {
+      title: "Suivi des Actifs",
+      short: "Suivi et surveillance en temps réel de vos actifs précieux.",
+    },
+  },
+};
 
 export const services: Service[] = [
   {

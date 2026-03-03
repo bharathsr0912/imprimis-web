@@ -1,0 +1,21 @@
+
+{
+  "nav": {
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Solutions IoT intelligentes pour la gestion de flotte, la gestion de l'eau et la sécurité personnelle."
+  },
+  "services": {
+    "fleet": "Gestion de flotte",
+    "water": "Gestion intelligente de l'eau",
+    "security": "Sécurité personnelle",
+    "asset": "Suivi des actifs"
+  },
+  "footer": {
+    "getInTouch": "Contactez-nous",
+    "rights": "© 2026 Imprimis. Tous droits réservés."
+  }
+}
