@@ -13,9 +13,9 @@ export function generateStaticParams() {
 export default async function ServiceDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) {
     notFound();
@@ -26,9 +26,8 @@ export default async function ServiceDetailPage({
 
       {/* Back link */}
       <Link
-        href="/#services"
+        href={`/${locale}/services`}
         className="mb-6 inline-block text-sm text-cyan-600 dark:text-cyan-400 hover:underline"
-        scroll={false}
       >
         ← Back to Services
       </Link>
@@ -192,16 +191,14 @@ export default async function ServiceDetailPage({
         </p>
         <div className="mt-8 flex justify-center gap-4 flex-wrap">
           <Link
-            href="/#contact"
+            href={`/${locale}/contact`}
             className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-sm font-medium text-white hover:bg-cyan-700 transition"
-            scroll={false}
           >
             Contact Us
           </Link>
           <Link
-            href="/#services"
+            href={`/${locale}/services`}
             className="inline-flex items-center justify-center rounded-md border border-slate-300 dark:border-slate-700 px-6 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition"
-            scroll={false}
           >
             View Other Services
           </Link>
