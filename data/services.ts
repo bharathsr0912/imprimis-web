@@ -11,7 +11,7 @@ export const services: Service[] = [
     short: "Monitor, manage, and optimise your vehicle fleet in real time — from a single dashboard.",
     description:
       "Imprimis Fleet Management gives businesses real-time visibility over their vehicles, drivers, and operations — all from one centralised dashboard. Track live locations, monitor driver behaviour, manage fuel usage, and receive instant alerts the moment something needs your attention. Whether you operate a small local fleet or manage vehicles across multiple sites, the platform gives your team a clear, accurate picture of everything happening on the ground.",
-    images: ["/hero/fleet1.png"],
+    images: ["/hero/fleet management.png"],
     heroImageAlt: "Aerial view of a fleet depot or logistics hub with IoT overlay",
     features: [
       "Live vehicle tracking",
@@ -93,7 +93,7 @@ export const services: Service[] = [
     short: "Real-time tracking and monitoring of your valuable assets — wherever they are.",
     description:
       "Imprimis Asset Tracking gives businesses complete visibility over their valuable equipment, inventory, and assets — in real time, from a single platform. Whether your assets are moving across a supply chain or stored across multiple facilities, you always know exactly where they are, their condition, and when something needs your attention.",
-    images: ["/hero/a1.png"],
+    images: ["/hero/Asset tracking.png"],
     heroImageAlt: "Warehouse or facility with IoT tracking overlay",
     features: [
       "Real-time asset location",
@@ -175,7 +175,7 @@ export const services: Service[] = [
     short: "IoT-powered monitoring and control of water supply, quality, and distribution networks.",
     description:
       "Imprimis Smart Water Management brings real-time intelligence to water supply networks — giving municipalities, utilities, and industrial operators complete visibility over water quality, flow, pressure, and distribution from a single connected platform. Every sensor, valve, and meter in your network feeds live data into a centralised dashboard, so your team can monitor, respond, and take action instantly — from anywhere.",
-    images: ["/hero/track1.png"],
+    images: ["/hero/smartwater management.png"],
     heroImageAlt: "Water treatment plant, pipeline network, or smart city water infrastructure with IoT overlay",
     features: [
       "Water quality monitoring",
@@ -270,7 +270,7 @@ export const services: Service[] = [
     short: "GPS-based personal safety solutions for individuals, field teams, and lone workers.",
     description:
       "Imprimis Personal Security gives individuals, field teams, and organisations a reliable way to stay connected and protected — wherever they are. Built on IoT and real-time GPS, the solution combines live location tracking, instant SOS alerts, and emergency response tools into a single, easy-to-use platform.",
-    images: ["/hero/ps1.png"],
+    images: ["/hero/personal security.png"],
     heroImageAlt: "Person holding a phone with SOS / safety tracking interface — or a wearable safety device",
     features: [
       "Real-time location tracking",
@@ -352,7 +352,7 @@ export const services: Service[] = [
     short: "IoT-powered monitoring and automation for smarter, more efficient farming operations.",
     description:
       "Imprimis Automated Smart Agriculture gives farmers and agribusinesses real-time visibility and automated control over their fields, crops, and resources — all from a single connected platform. IoT sensors deployed across your land continuously monitor soil conditions, crop health, weather, and water availability, feeding live data into a dashboard that helps you make faster, more informed decisions.",
-    images: ["/hero/agriculture1.png"],
+    images: ["/hero/automated smart agri.jpeg"],
     heroImageAlt: "Aerial view of farmland or crop fields with IoT sensor/data overlay visuals",
     features: [
       "Soil health monitoring",

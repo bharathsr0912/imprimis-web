@@ -7,39 +7,41 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (
-  e: React.FormEvent<HTMLFormElement>
-) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const form = e.currentTarget;   // ✅ store form reference safely
+    const form = e.currentTarget;
 
-  setLoading(true);
-  setSuccess(false);
+    setLoading(true);
+    setSuccess(false);
 
-  try {
-    const result = await emailjs.sendForm(
-      "service_fxwmnqr",
-      "template_lp33v39",
-      form,                // ✅ use stored form
-      "aKQGQMdZVUZEUq5DK"
-    );
+    try {
+      const result = await emailjs.sendForm(
+        "service_fxwmnqr",
+        "template_lp33v39",
+        form,
+        "aKQGQMdZVUZEUq5DK"
+      );
 
-    if (result.status === 200) {
-      setSuccess(true);
-      form.reset();        // ✅ safe reset
+      if (result.status === 200) {
+        setSuccess(true);
+        form.reset();
+      }
+    } catch (error) {
+      console.error("EmailJS error:", error);
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error("EmailJS error:", error);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+
+      {/* Name */}
       <div>
-        <label className="block text-sm font-medium">Name</label>
+        <label className="block text-sm font-medium">
+          Name <span className="text-red-500">*</span>
+        </label>
         <input
           name="name"
           required
@@ -47,8 +49,11 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Email */}
       <div>
-        <label className="block text-sm font-medium">Email</label>
+        <label className="block text-sm font-medium">
+          Email <span className="text-red-500">*</span>
+        </label>
         <input
           type="email"
           name="email"
@@ -57,8 +62,11 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Message */}
       <div>
-        <label className="block text-sm font-medium">Message</label>
+        <label className="block text-sm font-medium">
+          Message <span className="text-red-500">*</span>
+        </label>
         <textarea
           name="message"
           rows={4}
@@ -76,8 +84,11 @@ export default function ContactForm() {
       </button>
 
       {success && (
-        <p className="text-sm text-green-600">Message sent successfully!</p>
+        <p className="text-sm text-green-600">
+          Message sent successfully!
+        </p>
       )}
+
     </form>
   );
 }

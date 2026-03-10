@@ -117,7 +117,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link
-              href={`/${currentLocale}/about`}
+              href={`/${currentLocale}/#about`}
               className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
             >
               {currentLocale === 'fr' ? 'À propos' : 'About'}

@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -42,14 +41,15 @@ export default async function ServiceDetailPage({
         {service.short}
       </p>
 
-      {/* Hero Image */}
+      {/* Hero Image ✅ FIXED */}
       {service.images?.length > 0 && (
-        <div className="relative mt-10 h-64 w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
+        <div className="mt-10 w-full rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
           <Image
             src={service.images[0]}
             alt={service.heroImageAlt ?? service.title}
-            fill
-            className="object-cover"
+            width={1200}
+            height={600}
+            className="w-full h-auto object-contain"
             priority
           />
         </div>
