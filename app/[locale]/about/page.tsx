@@ -4,7 +4,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-semibold mb-4">About Imprimis</h1>
       <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
         Imprimis is an IoT-focused technology company delivering solutions
-        such as fleet management, Smart Water Management, and personal security. Our
+        such as automated smart agriculture, Smart Water Management, and personal security. Our
         mission is to build reliable, scalable, and real-time IoT platforms for
         modern businesses.
       </p>
