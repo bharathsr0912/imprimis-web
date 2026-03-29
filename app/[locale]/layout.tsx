@@ -16,14 +16,10 @@ export default async function Layout({ children, params }: {
   const { locale } = await params;
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col">
-        <ThemeProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+    <ThemeProvider>
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </ThemeProvider>
   );
 }
