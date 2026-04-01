@@ -70,9 +70,15 @@ export default function Header() {
     router.push(newPath);
   };
 
-  // Smooth scroll handler for hash links
+  // ✅ NEW: handles logo click — navigates to home and scrolls to top
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push(`/${currentLocale}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setMenuOpen(false);
+  };
+
   const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-    const url = new URL(e.currentTarget.href);
     const isHomePage = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
 
     if (isHomePage) {
@@ -90,14 +96,18 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-16 items-center justify-between">
 
-          <Link href={`/${currentLocale}`} className="text-xl font-semibold text-slate-900 dark:text-white transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400">
+          {/* ✅ FIXED: onClick navigates to /${currentLocale} and scrolls to top */}
+          <Link
+            href={`/${currentLocale}`}
+            onClick={handleLogoClick}
+            className="text-xl font-semibold text-slate-900 dark:text-white transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
+          >
             Imprimis
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
 
-            {/* About */}
             <Link
               href={`/${currentLocale}#about`}
               onClick={(e) => handleHashClick(e, "about")}
@@ -106,7 +116,6 @@ export default function Header() {
               {aboutLabel}
             </Link>
 
-            {/* Services Dropdown */}
             <div className="relative group py-2">
               <Link
                 href={`/${currentLocale}#services`}
@@ -134,7 +143,6 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Our Process */}
             <Link
               href={`/${currentLocale}#how-it-works`}
               onClick={(e) => handleHashClick(e, "how-it-works")}
@@ -143,7 +151,6 @@ export default function Header() {
               {currentLocale === "fr" ? "Notre processus" : "Our Process"}
             </Link>
 
-            {/* Contact */}
             <Link
               href={`/${currentLocale}#contact`}
               onClick={(e) => handleHashClick(e, "contact")}
@@ -184,7 +191,6 @@ export default function Header() {
         <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           <nav className="flex flex-col px-6 py-4 gap-1 text-sm font-medium">
 
-            {/* About */}
             <Link
               href={`/${currentLocale}#about`}
               onClick={(e) => handleHashClick(e, "about")}
@@ -193,7 +199,6 @@ export default function Header() {
               {aboutLabel}
             </Link>
 
-            {/* Services */}
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
@@ -230,7 +235,6 @@ export default function Header() {
               )}
             </div>
 
-            {/* Our Process */}
             <Link
               href={`/${currentLocale}#how-it-works`}
               onClick={(e) => handleHashClick(e, "how-it-works")}
@@ -239,7 +243,6 @@ export default function Header() {
               {currentLocale === "fr" ? "Notre processus" : "Our Process"}
             </Link>
 
-            {/* Contact */}
             <Link
               href={`/${currentLocale}#contact`}
               onClick={(e) => handleHashClick(e, "contact")}
