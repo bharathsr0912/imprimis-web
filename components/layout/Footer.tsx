@@ -1,7 +1,6 @@
 "use client";
 
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { services } from "@/data/services";
 
@@ -11,14 +10,22 @@ export default function Footer() {
   const currentLocale = pathname.startsWith("/fr") ? "fr" : "en";
   const isHomePage = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
 
-  const handleAboutClick = () => {
+  const handleSectionClick = (sectionId: string) => {
     if (isHomePage) {
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     } else {
       router.push(`/${currentLocale}`);
       setTimeout(() => {
-        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
       }, 500);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push(`/${currentLocale}`);
     }
   };
 
@@ -27,9 +34,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href={`/${currentLocale}`} className="text-lg font-semibold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <button
+              onClick={handleLogoClick}
+              className="text-lg font-semibold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer"
+            >
               Imprimis
-            </Link>
+            </button>
             <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 max-w-xs">
               Smart IoT solutions for Automated Smart Agriculture, Smart Water Management &amp; personal security.
             </p>
@@ -40,9 +50,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.slug}>
-                  <Link href={`/${currentLocale}/services/${service.slug}`} className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                  <button
+                    onClick={() => handleSectionClick("services")}
+                    className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
+                  >
                     {service.title}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -53,21 +66,27 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={handleAboutClick}
+                  onClick={() => handleSectionClick("about")}
                   className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer"
                 >
                   About
                 </button>
               </li>
               <li>
-                <Link href={`/${currentLocale}/how-it-works`} className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <button
+                  onClick={() => handleSectionClick("how-it-works")}
+                  className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer"
+                >
                   Our Process
-                </Link>
+                </button>
               </li>
               <li>
-                <Link href={`/${currentLocale}/contact`} className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <button
+                  onClick={() => handleSectionClick("contact")}
+                  className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer"
+                >
                   Contact
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

@@ -25,7 +25,7 @@ export default async function ServiceDetailPage({
 
       {/* Back link */}
       <Link
-        href={`/${locale}/services`}
+        href={`/${locale}#services`}
         className="mb-6 inline-block text-sm text-cyan-600 dark:text-cyan-400 hover:underline"
       >
         ← Back to Services
@@ -41,7 +41,7 @@ export default async function ServiceDetailPage({
         {service.short}
       </p>
 
-      {/* Hero Image ✅ FIXED */}
+      {/* Hero Image */}
       {service.images?.length > 0 && (
         <div className="mt-10 w-full rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
           <Image
@@ -92,7 +92,6 @@ export default async function ServiceDetailPage({
                 key={i}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start"
               >
-                {/* Image placeholder */}
                 <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-cyan-400 bg-cyan-50 dark:bg-slate-800 dark:border-slate-600 aspect-[4/3] p-6 text-center">
                   <span className="text-4xl">{item.imageIcon}</span>
                   <span className="text-sm font-semibold text-cyan-700 dark:text-cyan-400">
@@ -102,7 +101,6 @@ export default async function ServiceDetailPage({
                     {item.imageNote}
                   </span>
                 </div>
-                {/* Content */}
                 <div>
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
                     {item.title}
@@ -191,13 +189,13 @@ export default async function ServiceDetailPage({
         </p>
         <div className="mt-8 flex justify-center gap-4 flex-wrap">
           <Link
-            href={`/${locale}/contact`}
+            href={`/${locale}#contact`}
             className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-sm font-medium text-white hover:bg-cyan-700 transition"
           >
             Contact Us
           </Link>
           <Link
-            href={`/${locale}/services`}
+            href={`/${locale}#services`}
             className="inline-flex items-center justify-center rounded-md border border-slate-300 dark:border-slate-700 px-6 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition"
           >
             View Other Services

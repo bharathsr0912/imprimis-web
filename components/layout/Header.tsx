@@ -63,11 +63,26 @@ export default function Header() {
   const pathname = usePathname();
 
   const currentLocale = pathname.startsWith("/fr") ? "fr" : "en";
-  const aboutLabel = currentLocale === "fr" ? "\u00C0 propos" : "About";
+  const aboutLabel = currentLocale === "fr" ? "À propos" : "About";
 
   const switchLanguage = (lang: string) => {
     const newPath = pathname.replace(`/${currentLocale}`, `/${lang}`);
     router.push(newPath);
+  };
+
+  // Smooth scroll handler for hash links
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    const url = new URL(e.currentTarget.href);
+    const isHomePage = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
+
+    if (isHomePage) {
+      e.preventDefault();
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setMenuOpen(false);
   };
 
   return (
@@ -81,8 +96,11 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+
+            {/* About */}
             <Link
-              href={`/${currentLocale}/about`}
+              href={`/${currentLocale}#about`}
+              onClick={(e) => handleHashClick(e, "about")}
               className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
             >
               {aboutLabel}
@@ -90,7 +108,11 @@ export default function Header() {
 
             {/* Services Dropdown */}
             <div className="relative group py-2">
-              <Link href={`/${currentLocale}/services`} className="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+              <Link
+                href={`/${currentLocale}#services`}
+                onClick={(e) => handleHashClick(e, "services")}
+                className="inline-flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+              >
                 Services
                 <svg className="h-4 w-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
@@ -100,7 +122,10 @@ export default function Header() {
                 <ul className="py-2">
                   {services.map((service) => (
                     <li key={service.slug}>
-                      <Link href={`/${currentLocale}/services/${service.slug}`} className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-cyan-600 dark:hover:text-cyan-400">
+                      <Link
+                        href={`/${currentLocale}/services/${service.slug}`}
+                        className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-cyan-600 dark:hover:text-cyan-400"
+                      >
                         {service.title}
                       </Link>
                     </li>
@@ -109,11 +134,21 @@ export default function Header() {
               </div>
             </div>
 
-            <Link href={`/${currentLocale}/how-it-works`} className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400">
+            {/* Our Process */}
+            <Link
+              href={`/${currentLocale}#how-it-works`}
+              onClick={(e) => handleHashClick(e, "how-it-works")}
+              className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
+            >
               {currentLocale === "fr" ? "Notre processus" : "Our Process"}
             </Link>
 
-            <Link href={`/${currentLocale}/contact`} className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400">
+            {/* Contact */}
+            <Link
+              href={`/${currentLocale}#contact`}
+              onClick={(e) => handleHashClick(e, "contact")}
+              className="text-slate-600 dark:text-slate-300 transition-colors duration-200 hover:text-cyan-600 dark:hover:text-cyan-400"
+            >
               Contact
             </Link>
 
@@ -148,14 +183,17 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           <nav className="flex flex-col px-6 py-4 gap-1 text-sm font-medium">
+
+            {/* About */}
             <Link
-              href={`/${currentLocale}/about`}
-              onClick={() => setMenuOpen(false)}
+              href={`/${currentLocale}#about`}
+              onClick={(e) => handleHashClick(e, "about")}
               className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             >
               {aboutLabel}
             </Link>
 
+            {/* Services */}
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
@@ -169,13 +207,21 @@ export default function Header() {
               {servicesOpen && (
                 <ul className="pl-4 flex flex-col gap-1 mb-1">
                   <li>
-                    <Link href={`/${currentLocale}/services`} onClick={() => setMenuOpen(false)} className="block py-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    <Link
+                      href={`/${currentLocale}#services`}
+                      onClick={(e) => handleHashClick(e, "services")}
+                      className="block py-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                    >
                       {currentLocale === "fr" ? "Tous les services" : "All Services"}
                     </Link>
                   </li>
                   {services.map((service) => (
                     <li key={service.slug}>
-                      <Link href={`/${currentLocale}/services/${service.slug}`} onClick={() => setMenuOpen(false)} className="block py-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                      <Link
+                        href={`/${currentLocale}/services/${service.slug}`}
+                        onClick={() => setMenuOpen(false)}
+                        className="block py-1.5 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                      >
                         {service.title}
                       </Link>
                     </li>
@@ -184,13 +230,24 @@ export default function Header() {
               )}
             </div>
 
-            <Link href={`/${currentLocale}/how-it-works`} onClick={() => setMenuOpen(false)} className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            {/* Our Process */}
+            <Link
+              href={`/${currentLocale}#how-it-works`}
+              onClick={(e) => handleHashClick(e, "how-it-works")}
+              className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            >
               {currentLocale === "fr" ? "Notre processus" : "Our Process"}
             </Link>
 
-            <Link href={`/${currentLocale}/contact`} onClick={() => setMenuOpen(false)} className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            {/* Contact */}
+            <Link
+              href={`/${currentLocale}#contact`}
+              onClick={(e) => handleHashClick(e, "contact")}
+              className="py-2 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            >
               Contact
             </Link>
+
           </nav>
         </div>
       )}
