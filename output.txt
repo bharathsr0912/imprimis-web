@@ -1,0 +1,9 @@
+ Volume in drive C is OS
+ Volume Serial Number is 946E-3694
+
+ Directory of C:\Users\nidhi\imprimis-web\app\[locale]
+
+03-03-2026  15:09    <DIR>          .
+03-03-2026  15:09    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)  74,952,536,064 bytes free
