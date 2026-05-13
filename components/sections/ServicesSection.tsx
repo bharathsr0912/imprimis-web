@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default function ServicesSection() {
     <section className="mx-auto max-w-7xl px-4 sm:px-6">
 
       {/* Heading */}
-      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center sm:text-left">
+      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center">
         {locale === 'fr' ? 'Nos Services' : 'Our Services'}
       </h2>
 
@@ -40,13 +39,13 @@ export default function ServicesSection() {
               </h3>
 
               {/* Short description */}
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 flex-1">
+              <p className="mt-2 text-sm text-slate-700 dark:text-slate-300 flex-1">
                 {short}
               </p>
 
-              {/* Link */}
+              {/* Link — fixed: locale added */}
               <Link
-                href={`/services/${service.slug}`}
+                href={`/${locale}/services/${service.slug}`}
                 className="mt-4 inline-block text-sm text-cyan-600 dark:text-cyan-400 hover:underline"
               >
                 {locale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
