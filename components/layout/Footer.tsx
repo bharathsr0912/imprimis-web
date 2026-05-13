@@ -2,6 +2,7 @@
 
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { services } from "@/data/services";
 
 export default function Footer() {
@@ -50,12 +51,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.slug}>
-                  <button
-                    onClick={() => handleSectionClick("services")}
-                    className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left"
+                  <Link
+                    href={`/${currentLocale}/services/${service.slug}`}
+                    className="text-sm text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors text-left"
                   >
                     {service.title}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
