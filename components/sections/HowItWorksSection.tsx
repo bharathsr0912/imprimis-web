@@ -1,4 +1,3 @@
-
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -50,7 +49,7 @@ export default function HowItWorksSection() {
   const t = content[locale];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 text-center">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <p className="text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wide text-sm">
         {t.label}
       </p>
@@ -59,21 +58,21 @@ export default function HowItWorksSection() {
         {t.title}
       </h2>
 
-      <p className="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+      <p className="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
         {t.subtitle}
       </p>
 
-      <div className="mt-12 space-y-10 text-left max-w-3xl mx-auto">
+      <div className="mt-10 sm:mt-12 space-y-8 sm:space-y-10 text-left max-w-3xl mx-auto">
         {t.steps.map((step, i) => (
-          <div key={i} className="flex gap-6">
-            <div className="w-12 h-12 rounded-full border-2 border-cyan-600 text-cyan-600 flex items-center justify-center font-bold text-lg flex-shrink-0">
+          <div key={i} className="flex gap-4 sm:gap-6">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-cyan-600 text-cyan-600 flex items-center justify-center font-bold text-base sm:text-lg flex-shrink-0">
               {i + 1}
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
                 {step.title}
               </h3>
-              <p className="mt-2 text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
                 {step.body}
               </p>
             </div>

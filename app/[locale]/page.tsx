@@ -14,7 +14,7 @@ const translations = {
     title1: "Smart IoT Solutions",
     title2: "for Modern Businesses",
     description:
-      "Empowering automated smart agriculture, smart water management, asset tracking, and personal security with scalable real-time IoT technology.",
+      "Empowering smart water management, fleet management, asset tracking, personal security, and automated smart agriculture with scalable real-time IoT technology.",
     btn1: "Explore Solutions",
     btn2: "Contact Us",
   },
@@ -22,7 +22,7 @@ const translations = {
     title1: "Solutions IoT Intelligentes",
     title2: "pour les Entreprises Modernes",
     description:
-      "Automatisation de l'agriculture intelligente, gestion de l'eau, suivi des actifs et sécurité personnelle avec une technologie IoT évolutive en temps réel.",
+      "Gestion de l'eau intelligente, suivi des actifs, sécurité personnelle et automatisation de l'agriculture intelligente avec une technologie IoT évolutive en temps réel.",
     btn1: "Explorer les Solutions",
     btn2: "Nous Contacter",
   },
@@ -55,7 +55,7 @@ export default function HomePage() {
                 {t.title2}
               </span>
             </h1>
-            <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-300 text-lg">
+            <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-slate-800 dark:text-white text-lg text-center lg:text-left">
               {t.description}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
