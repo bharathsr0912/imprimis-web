@@ -7,7 +7,6 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import Image from "next/image";
-import Link from "next/link";
 import ScrollHash from "@/components/scroll/ScrollHash";
 
 const translations = {
@@ -60,18 +59,18 @@ export default function HomePage() {
               {t.description}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                href={`/${currentLocale}/services`}
+              <button
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
                 className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-md text-sm font-medium transition text-center"
               >
                 {t.btn1}
-              </Link>
-              <Link
-                href={`/${currentLocale}/contact`}
+              </button>
+              <button
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="bg-cyan-600 text-white px-8 py-3 rounded-md text-sm font-medium transition hover:bg-cyan-700"
               >
                 {t.btn2}
-              </Link>
+              </button>
             </div>
           </div>
           <div className="flex justify-center lg:justify-end">
