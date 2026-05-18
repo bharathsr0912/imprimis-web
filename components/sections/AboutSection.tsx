@@ -57,10 +57,15 @@ export default function AboutSection() {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
             {t.title}
           </h2>
-          <h3>{t.subtitle}</h3>
-          <p>{t.p1}</p>
-          <br />
-          <p>{t.p2}</p>
+          <h3 className="mt-3 text-lg sm:text-xl font-semibold text-slate-800 dark:text-slate-100">
+            {t.subtitle}
+          </h3>
+          <p className="mt-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            {t.p1}
+          </p>
+          <p className="mt-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            {t.p2}
+          </p>
         </div>
 
         {/* Right: Highlight Cards */}
