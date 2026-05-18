@@ -68,9 +68,14 @@ Bengaluru, Karnataka 560098`;
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">
                   {t.email}
                 </h3>
-                <a href="mailto:contact@imprimis.in" className="text-sm text-slate-700 dark:text-slate-300 hover:text-cyan-600 transition-colors">
-                  contact@imprimis.in
-                </a>
+                <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@imprimis.in"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-sm text-slate-700 dark:text-slate-300 hover:text-cyan-600 transition-colors"
+>
+  contact@imprimis.in
+</a>
               </div>
             </div>
 
